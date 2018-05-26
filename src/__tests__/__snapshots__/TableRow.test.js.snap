@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableRow renders and matches snapshot 1`] = `
+<tr
+  className="row"
+>
+  <td>
+    1
+  </td>
+  <td>
+    <a
+      className="user-info"
+      href="https://www.freecodecamp.org/camper"
+    >
+      <img
+        alt="camper avatar"
+        src="#"
+      />
+      <p>
+        camper
+      </p>
+    </a>
+  </td>
+  <td>
+    5
+  </td>
+  <td>
+    10
+  </td>
+</tr>
+`;
