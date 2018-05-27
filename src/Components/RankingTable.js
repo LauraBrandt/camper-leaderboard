@@ -13,6 +13,7 @@ class RankingTable extends React.Component {
 
     this.handleSort = this.handleSort.bind(this);
     this.renderRows = this.renderRows.bind(this);
+    this.renderHeaderPointsItem = this.renderHeaderPointsItem.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,18 @@ class RankingTable extends React.Component {
     )
   }
 
+  renderHeaderPointsItem(label, type) {
+    return(
+      <div className="points">
+        <span>{label}</span>
+        <div className="points-sorters">
+          <SortingButton type={type} direction="up" inactive={this.state.inactive === `${type} up`} handleClick={this.handleSort}/>
+          <SortingButton type={type} direction="down" inactive={this.state.inactive === `${type} down`} handleClick={this.handleSort}/>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="ranking-table-wrapper">
@@ -42,25 +55,9 @@ class RankingTable extends React.Component {
           <thead>
             <tr className="row header-row">
               <th>#</th>
-              <th>Camper</th> 
-              <th>
-                <div className="points">
-                  <span className="points-label">Points in last 30 days</span>
-                  <div className="points-sorters">
-                    <SortingButton type="recent" direction="up" inactive={this.state.inactive === 'recent up'} handleClick={this.handleSort}/>
-                    <SortingButton type="recent" direction="down" inactive={this.state.inactive === 'recent down'} handleClick={this.handleSort}/>
-                  </div>
-                </div>
-              </th>
-              <th>
-                <div className="points">
-                  <span>All time points</span>
-                  <div className="points-sorters">
-                    <SortingButton type="alltime" direction="up" inactive={this.state.inactive === 'alltime up'} handleClick={this.handleSort}/>
-                    <SortingButton type="alltime" direction="down" inactive={this.state.inactive === 'alltime down'} handleClick={this.handleSort}/>
-                  </div>
-                </div>
-              </th>
+              <th>Camper</th>
+              <th>{this.renderHeaderPointsItem("Points in last 30 days", "recent")}</th>
+              <th>{this.renderHeaderPointsItem("All time points", "alltime")}</th>
             </tr>
           </thead>
           <tbody>
