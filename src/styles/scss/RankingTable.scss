@@ -73,6 +73,40 @@
   }
 }
 
+.points {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .points-sorters {
+    display: flex;
+    flex-direction: column;
+    button {
+      padding: 0;
+      margin: 0;
+      border: none;
+      background-color: $fcc-brown;
+      color: $fcc-white;
+      font-size: 1rem;
+      cursor: pointer;
+      &:hover, &:focus {
+        color: darken($fcc-grey, 10%);
+        outline: none;
+      }
+      &:active {
+        color: darken($fcc-grey, 15%);
+      }
+      &.inactive {
+        display:none;
+        // cursor: default;
+        // color: $fcc-dark-grey;
+        // &:hover, &:focus, &:active {
+        //   color: $fcc-dark-grey;
+        // }
+      }
+    }
+  }
+}
+
 @media (max-width: 450px) {
   .ranking-table-wrapper {
     padding: 0;

@@ -55,6 +55,29 @@
   .user-info p {
     margin: 0.5em 0; }
 
+.points {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .points .points-sorters {
+    display: flex;
+    flex-direction: column; }
+    .points .points-sorters button {
+      padding: 0;
+      margin: 0;
+      border: none;
+      background-color: #A4755F;
+      color: #FFFFFF;
+      font-size: 1rem;
+      cursor: pointer; }
+      .points .points-sorters button:hover, .points .points-sorters button:focus {
+        color: #c7c7c7;
+        outline: none; }
+      .points .points-sorters button:active {
+        color: #bababa; }
+      .points .points-sorters button.inactive {
+        display: none; }
+
 @media (max-width: 450px) {
   .ranking-table-wrapper {
     padding: 0; }

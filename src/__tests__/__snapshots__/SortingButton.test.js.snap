@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortingButton renders and matches snapshot 1`] = `
+<div>
+  <button
+    className="recent up"
+    onClick={[Function]}
+    title="Sort descending"
+  >
+    <i
+      className="fas fa-caret-up"
+    />
+  </button>
+</div>
+`;

@@ -18,10 +18,76 @@ exports[`RankingTable renders and matches snapshot 1`] = `
           Camper
         </th>
         <th>
-          Points in last 30 days
+          <div
+            className="points"
+          >
+            <span
+              className="points-label"
+            >
+              Points in last 30 days
+            </span>
+            <div
+              className="points-sorters"
+            >
+              <div>
+                <button
+                  className="recent up inactive"
+                  onClick={null}
+                  title="Sort descending"
+                >
+                  <i
+                    className="fas fa-caret-up"
+                  />
+                </button>
+              </div>
+              <div>
+                <button
+                  className="recent down"
+                  onClick={[Function]}
+                  title="Sort ascending"
+                >
+                  <i
+                    className="fas fa-caret-down"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
         </th>
         <th>
-          All time points
+          <div
+            className="points"
+          >
+            <span>
+              All time points
+            </span>
+            <div
+              className="points-sorters"
+            >
+              <div>
+                <button
+                  className="alltime up"
+                  onClick={[Function]}
+                  title="Sort descending"
+                >
+                  <i
+                    className="fas fa-caret-up"
+                  />
+                </button>
+              </div>
+              <div>
+                <button
+                  className="alltime down"
+                  onClick={[Function]}
+                  title="Sort ascending"
+                >
+                  <i
+                    className="fas fa-caret-down"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
         </th>
       </tr>
     </thead>

@@ -1,5 +1,6 @@
 import React from 'react';
 import TableRow from './TableRow';
+import SortingButton from './SortingButton';
 import users from '../data';
 
 class RankingTable extends React.Component {
@@ -8,11 +9,18 @@ class RankingTable extends React.Component {
     this.state = {
       users: []
     }
+
+    this.handleSort = this.handleSort.bind(this);
     this.renderRows = this.renderRows.bind(this);
   }
 
   componentDidMount() {
     this.setState({ users });
+  }
+
+  handleSort(e) {
+    console.log(this)
+    console.log(e.target)
   }
 
   renderRows() {
@@ -29,8 +37,24 @@ class RankingTable extends React.Component {
             <tr className="row header-row">
               <th>#</th>
               <th>Camper</th> 
-              <th>Points in last 30 days</th>
-              <th>All time points</th>
+              <th>
+                <div className="points">
+                  <span className="points-label">Points in last 30 days</span>
+                  <div className="points-sorters">
+                    <SortingButton type="recent" direction="up" inactive={true} handleClick={this.handleSort}/>
+                    <SortingButton type="recent" direction="down" handleClick={this.handleSort}/>
+                  </div>
+                </div>
+              </th>
+              <th>
+                <div className="points">
+                  <span>All time points</span>
+                  <div className="points-sorters">
+                    <SortingButton type="alltime" direction="up" handleClick={this.handleSort}/>
+                    <SortingButton type="alltime" direction="down" handleClick={this.handleSort}/>
+                  </div>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
