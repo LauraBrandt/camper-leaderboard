@@ -31,9 +31,7 @@ exports[`App renders and matches snapshot 1`] = `
             <div
               className="points"
             >
-              <span
-                className="points-label"
-              >
+              <span>
                 Points in last 30 days
               </span>
               <div

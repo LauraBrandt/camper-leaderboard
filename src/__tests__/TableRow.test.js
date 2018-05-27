@@ -4,7 +4,9 @@ import renderer from 'react-test-renderer';
 import TableRow from '../Components/TableRow';
 
 describe('TableRow', () => {
-  let mockProps = {
+  let mockProps;
+
+  const resetProps = () => mockProps = {
     user: {
       username: 'camper',
       recent: 5,
@@ -12,9 +14,10 @@ describe('TableRow', () => {
       img: "#"
     },
     index: 0
-  };
+  }
   
   it('renders and matches snapshot', () => {
+    resetProps();
     const renderedComponent = renderer.create(<TableRow {...mockProps}/>);
     const tree = renderedComponent.toJSON();
     expect(tree).toMatchSnapshot();
@@ -22,15 +25,6 @@ describe('TableRow', () => {
   
   describe('content', () => {
     let component;
-    const resetProps = () => mockProps = {
-      user: {
-        username: 'camper',
-        recent: 5,
-        alltime: 10,
-        img: "#"
-      },
-      index: 0
-    }
 
     beforeEach(() => {
       resetProps();
@@ -38,7 +32,7 @@ describe('TableRow', () => {
     });
 
     it('has 4 columns', () => {
-      expect(component.find('tr td')).toHaveLength(4);
+      expect(component.find('.row td')).toHaveLength(4);
     });
 
     it('the first column contains the prop index + 1', () => {

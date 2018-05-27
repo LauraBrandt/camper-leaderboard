@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SortingButton matches snapshot of new props 1`] = `
+<div>
+  <button
+    className="alltime down"
+    onClick={[Function]}
+    title="Sort ascending"
+  >
+    <i
+      className="fas fa-caret-down"
+    />
+  </button>
+</div>
+`;
+
 exports[`SortingButton renders and matches snapshot 1`] = `
 <div>
   <button
