@@ -23,7 +23,7 @@ TableRow.propTypes = {
     username: PropTypes.string.isRequired,
     recent: PropTypes.number.isRequired,
     alltime: PropTypes.number.isRequired,
-    img: PropTypes.string.isRequired
+    img: PropTypes.string
   })
 }
 

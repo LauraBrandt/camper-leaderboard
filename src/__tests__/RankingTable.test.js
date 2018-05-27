@@ -80,4 +80,120 @@ describe('RankingTable', () => {
       expect(buttons.at(3).prop('handleClick')).toEqual(component.instance().handleSort);
     });
   });
+
+  describe('interactions', () => {
+    describe('handleSort', () => {
+      let component;
+      const reset = () => {
+        component = shallow(<RankingTable />);
+        component.setState({ 
+          users: [
+            {username: "", recent: 1, alltime: 2},
+            {username: "", recent: 3, alltime: 1},
+            {username: "", recent: 2, alltime: 3}
+          ],
+          inactive: 'recent up' 
+        });
+      }
+      
+      beforeEach(() => {
+        reset();
+      });
+
+      it("sorts 'recent up' and sets new state.inactive correctly", () => {
+        component.setState({ inactive: 'recent down' });
+        const event = {
+          currentTarget: {
+            classList: ['recent', 'up']
+          }
+        }
+
+        component.instance().handleSort(event);
+        expect(component.state('users')[0].recent).toBe(3);
+        expect(component.state('users')[2].recent).toBe(1);
+        expect(component.state('inactive')).toBe('recent up');
+      });
+
+      it("sorts 'recent down' and sets new state.inactive correctly", () => {
+        const event = {
+          currentTarget: {
+            classList: ['recent', 'down']
+          }
+        }
+
+        component.instance().handleSort(event);
+        expect(component.state('users')[0].recent).toBe(1);
+        expect(component.state('users')[2].recent).toBe(3);
+        expect(component.state('inactive')).toBe('recent down');
+      });
+
+      it("sorts 'alltime down' and sets new state.inactive correctly", () => {
+        const event = {
+          currentTarget: {
+            classList: ['alltime', 'down']
+          }
+        }
+
+        component.instance().handleSort(event);
+        expect(component.state('users')[0].alltime).toBe(1);
+        expect(component.state('users')[2].alltime).toBe(3);
+        expect(component.state('inactive')).toBe('alltime down');
+      });
+
+      it("sorts 'alltime up' and sets new state.inactive correctly", () => {
+        const event = {
+          currentTarget: {
+            classList: ['alltime', 'up']
+          }
+        }
+
+        component.instance().handleSort(event);
+        expect(component.state('users')[0].alltime).toBe(3);
+        expect(component.state('users')[2].alltime).toBe(1);
+        expect(component.state('inactive')).toBe('alltime up');
+      });
+    });
+
+    describe('handleSort integration', () => {
+      let component;
+      const reset = () => {
+        component = mount(<RankingTable />);
+        component.setState({
+          users: [
+            {username: "a", recent: 1, alltime: 2},
+            {username: "b", recent: 3, alltime: 1},
+            {username: "c", recent: 2, alltime: 3}
+          ],
+          inactive: 'recent up' 
+        });
+      }
+      
+      beforeEach(() => {
+        reset();
+      });
+
+      it('calls handleSort correctly on buttonClick', () => {
+        component.instance().handleSort = jest.fn();
+        component.instance().forceUpdate();
+
+        expect(component.instance().handleSort).not.toBeCalled();
+        component.find('.recent.down').simulate('click');
+        expect(component.instance().handleSort).toBeCalled();
+        
+        const argument = component.instance().handleSort.mock.calls[0][0]
+        expect(argument.target.classList[0]).toBe('recent');
+        expect(argument.target.classList[1]).toBe('down');
+
+        component.instance().handleSort.mockRestore();
+      });
+
+      it('executes handleSort correctly on button click', () => {
+        component.find('.recent.down').simulate('click');
+
+        expect(component.state('users')[0].recent).toBe(1);
+        expect(component.state('users')[2].recent).toBe(3);
+        expect(component.state('inactive')).toBe('recent down');
+      });
+    });
+  });
 });

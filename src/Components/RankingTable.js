@@ -7,7 +7,8 @@ class RankingTable extends React.Component {
   constructor() {
     super();
     this.state = {
-      users: []
+      users: [],
+      inactive: 'recent up'
     }
 
     this.handleSort = this.handleSort.bind(this);
@@ -19,8 +20,13 @@ class RankingTable extends React.Component {
   }
 
   handleSort(e) {
-    console.log(this)
-    console.log(e.target)
+    const type = e.currentTarget.classList[0];
+    const direction = e.currentTarget.classList[1];
+    const sign = direction === 'up' ? -1 : 1;
+    
+    const users = this.state.users;
+    users.sort((a, b) => sign * (a[type] - b[type]));
+    this.setState({ users, inactive: `${type} ${direction}` })
   }
 
   renderRows() {
@@ -41,8 +47,8 @@ class RankingTable extends React.Component {
                 <div className="points">
                   <span className="points-label">Points in last 30 days</span>
                   <div className="points-sorters">
-                    <SortingButton type="recent" direction="up" inactive={true} handleClick={this.handleSort}/>
-                    <SortingButton type="recent" direction="down" handleClick={this.handleSort}/>
+                    <SortingButton type="recent" direction="up" inactive={this.state.inactive === 'recent up'} handleClick={this.handleSort}/>
+                    <SortingButton type="recent" direction="down" inactive={this.state.inactive === 'recent down'} handleClick={this.handleSort}/>
                   </div>
                 </div>
               </th>
@@ -50,8 +56,8 @@ class RankingTable extends React.Component {
                 <div className="points">
                   <span>All time points</span>
                   <div className="points-sorters">
-                    <SortingButton type="alltime" direction="up" handleClick={this.handleSort}/>
-                    <SortingButton type="alltime" direction="down" handleClick={this.handleSort}/>
+                    <SortingButton type="alltime" direction="up" inactive={this.state.inactive === 'alltime up'} handleClick={this.handleSort}/>
+                    <SortingButton type="alltime" direction="down" inactive={this.state.inactive === 'alltime down'} handleClick={this.handleSort}/>
                   </div>
                 </div>
               </th>
