@@ -5,11 +5,27 @@ import RankingTable from '../Components/RankingTable';
 import TableRow from '../Components/TableRow';
 import SortingButton from '../Components/SortingButton';
 
+const fetch = require('node-fetch');
+const users = [
+  {username: "a", recent: 5, alltime: 10, img: "#"},
+  {username: "b", recent: 4, alltime: 8, img: "#"},
+  {username: "c", recent: 3, alltime: 6, img: "#"},
+]
+
+beforeEach(() => {
+  fetch.resetMocks();
+  fetch.mockResponse(JSON.stringify( users ));
+});
+
 describe('RankingTable', () => {
-  it('renders and matches snapshot', () => {
+  it('renders and matches snapshot', (done) => {
     const component = renderer.create(<RankingTable />);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+
+    setImmediate(() => {
+      const tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+      done();
+    }, 0);
   });
   
   describe('content', () => {
@@ -82,22 +98,23 @@ describe('RankingTable', () => {
   });
 
   describe('interactions', () => {
+    let component;
+    const state = {
+      users: [
+        {username: "a", recent: 1, alltime: 2},
+        {username: "b", recent: 3, alltime: 1},
+        {username: "c", recent: 2, alltime: 3}
+      ],
+      inactive: 'recent up' 
+    }
+
     describe('handleSort', () => {
-      let component;
-      const reset = () => {
+      beforeEach((done) => {
         component = shallow(<RankingTable />);
-        component.setState({ 
-          users: [
-            {username: "", recent: 1, alltime: 2},
-            {username: "", recent: 3, alltime: 1},
-            {username: "", recent: 2, alltime: 3}
-          ],
-          inactive: 'recent up' 
-        });
-      }
-      
-      beforeEach(() => {
-        reset();
+        setImmediate(() => {
+          component.setState( state );
+          done();
+        }, 0);
       });
 
       it("sorts 'recent up' and sets new state.inactive correctly", () => {
@@ -155,21 +172,12 @@ describe('RankingTable', () => {
     });
 
     describe('handleSort integration', () => {
-      let component;
-      const reset = () => {
+      beforeEach((done) => {
         component = mount(<RankingTable />);
-        component.setState({
-          users: [
-            {username: "a", recent: 1, alltime: 2},
-            {username: "b", recent: 3, alltime: 1},
-            {username: "c", recent: 2, alltime: 3}
-          ],
-          inactive: 'recent up' 
-        });
-      }
-      
-      beforeEach(() => {
-        reset();
+        setImmediate(() => {
+          component.setState( state );
+          done();
+        }, 0);
       });
 
       it('calls handleSort correctly on buttonClick', () => {
@@ -194,6 +202,60 @@ describe('RankingTable', () => {
         expect(component.state('users')[2].recent).toBe(3);
         expect(component.state('inactive')).toBe('recent down');
       });
+    });
+  });
+
+  describe('message', () => {
+    it('sets initial message to "Loading..." and renders it', () => {
+      const component = shallow(<RankingTable />);
+      expect(component.state('message')).toBe("Loading . . .");
+      expect(component.find('.message').text()).toContain("Loading . . .");
+    });
+
+    it("changes message to empty string on successful api call and doesn't render it", () => {
+      const component = shallow(<RankingTable />);
+      expect.assertions(2);
+      return component.instance().apiCall()
+        .then(() => {
+          expect(component.state('message')).toBe('');
+          component.update();
+          expect(component.find('.message')).toHaveLength(0);
+        })
+    });
+
+    it('sets error message on failed api call and renders it', () => {
+      fetch.mockReject(new Error('error'));
+      expect.assertions(2);
+      const component = shallow(<RankingTable />);
+
+      return component.instance().apiCall()
+        .then(() => {
+          expect(component.state('message')).toContain('Sorry');
+          component.update();
+          expect(component.find('.message').text()).toContain('Sorry');
+        })
+    });
+  });
+
+  describe('api call', () => {
+    it('fetch called with correct url', () => {
+      const component = shallow(<RankingTable />);
+      expect(fetch).toBeCalled();
+      const url = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
+      expect(fetch).toBeCalledWith(url);
+    });
+
+    it('sets state.users correctly after successful api call and renders them', () => {
+      const component = shallow(<RankingTable />);
+      expect.assertions(3);
+      return component.instance().apiCall()
+        .then(() => {
+          expect(component.state('users')).toEqual(users);
+          component.update();
+          expect(component.find(TableRow)).toHaveLength(users.length);
+          const firstUser = component.find(TableRow).at(0).prop('user');
+          expect(firstUser).toEqual(users[0]);
+        })
     });
   });
 });

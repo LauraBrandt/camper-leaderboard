@@ -5,11 +5,23 @@ import App from '../App';
 import RankingTable from '../Components/RankingTable';
 import TableRow from '../Components/TableRow';
 
+const fetch = require('node-fetch');
+const users = [
+  {username: "a", recent: 5, alltime: 10, img: "#"},
+  {username: "b", recent: 4, alltime: 8, img: "#"},
+  {username: "c", recent: 3, alltime: 6, img: "#"},
+]
+fetch.mockResponse(JSON.stringify( users ));
+
 describe('App', () => {
-  it('renders and matches snapshot', () => {
+  it('renders and matches snapshot', (done) => {
     const component = renderer.create(<App />);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+
+    setImmediate(() => {
+      const tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+      done();
+    }, 0);
   });
 
   describe('content', () => {

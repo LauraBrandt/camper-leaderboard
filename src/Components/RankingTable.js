@@ -1,25 +1,34 @@
 import React from 'react';
 import TableRow from './TableRow';
 import SortingButton from './SortingButton';
-import users from '../data';
+// import users from '../data';
 
 class RankingTable extends React.Component {
   constructor() {
     super();
     this.state = {
       users: [],
-      inactive: 'recent up'
+      inactive: 'recent up',
+      message: 'Loading . . .'
     }
 
+    this.apiCall = this.apiCall.bind(this);
     this.handleSort = this.handleSort.bind(this);
     this.renderRows = this.renderRows.bind(this);
     this.renderHeaderPointsItem = this.renderHeaderPointsItem.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ users });
+    this.apiCall();
   }
 
+  apiCall() {
+    return fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
+      .then(response => response.json())
+      .then(data => this.setState({ users: data, message: '' }))
+      .catch(err => this.setState({ message: 'Sorry, there was a problem loading the users.' }));
+  }
+  
   handleSort(e) {
     const type = e.currentTarget.classList[0];
     const direction = e.currentTarget.classList[1];
@@ -61,7 +70,8 @@ class RankingTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.users && this.renderRows()}
+            {this.state.users.length > 0 ? this.renderRows() : 
+            this.state.message && <tr><td colSpan="4" className="message">{this.state.message}</td></tr>}
           </tbody>
         </table>
       </div>

@@ -99,22 +99,22 @@ exports[`RankingTable renders and matches snapshot 1`] = `
         <td>
           <a
             className="user-info"
-            href="https://www.freecodecamp.org/iulius83"
+            href="https://www.freecodecamp.org/a"
           >
             <img
-              alt="iulius83 avatar"
-              src="https://avatars2.githubusercontent.com/u/36899653?v=4"
+              alt="a avatar"
+              src="#"
             />
             <p>
-              iulius83
+              a
             </p>
           </a>
         </td>
         <td>
-          45
+          5
         </td>
         <td>
-          45
+          10
         </td>
       </tr>
       <tr
@@ -126,22 +126,22 @@ exports[`RankingTable renders and matches snapshot 1`] = `
         <td>
           <a
             className="user-info"
-            href="https://www.freecodecamp.org/Faithyoussef"
+            href="https://www.freecodecamp.org/b"
           >
             <img
-              alt="Faithyoussef avatar"
-              src="https://avatars0.githubusercontent.com/u/38753427?v=4"
+              alt="b avatar"
+              src="#"
             />
             <p>
-              Faithyoussef
+              b
             </p>
           </a>
         </td>
         <td>
-          45
+          4
         </td>
         <td>
-          45
+          8
         </td>
       </tr>
       <tr
@@ -153,481 +153,22 @@ exports[`RankingTable renders and matches snapshot 1`] = `
         <td>
           <a
             className="user-info"
-            href="https://www.freecodecamp.org/RecursiveRach"
+            href="https://www.freecodecamp.org/c"
           >
             <img
-              alt="RecursiveRach avatar"
-              src="https://avatars3.githubusercontent.com/u/34367085?v=4"
+              alt="c avatar"
+              src="#"
             />
             <p>
-              RecursiveRach
+              c
             </p>
           </a>
         </td>
         <td>
-          44
+          3
         </td>
-        <td>
-          45
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          4
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/hummeldon"
-          >
-            <img
-              alt="hummeldon avatar"
-              src="https://avatars2.githubusercontent.com/u/38077994?v=4"
-            />
-            <p>
-              hummeldon
-            </p>
-          </a>
-        </td>
-        <td>
-          44
-        </td>
-        <td>
-          45
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          5
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/kpone1"
-          >
-            <img
-              alt="kpone1 avatar"
-              src="https://avatars1.githubusercontent.com/u/38334216?v=4"
-            />
-            <p>
-              kpone1
-            </p>
-          </a>
-        </td>
-        <td>
-          44
-        </td>
-        <td>
-          45
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
         <td>
           6
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/karthikd69"
-          >
-            <img
-              alt="karthikd69 avatar"
-              src="https://avatars3.githubusercontent.com/u/30834118?v=4"
-            />
-            <p>
-              karthikd69
-            </p>
-          </a>
-        </td>
-        <td>
-          44
-        </td>
-        <td>
-          45
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          7
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/Sambender9"
-          >
-            <img
-              alt="Sambender9 avatar"
-              src="https://avatars.githubusercontent.com/u/7374344?v=3"
-            />
-            <p>
-              Sambender9
-            </p>
-          </a>
-        </td>
-        <td>
-          43
-        </td>
-        <td>
-          44
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          8
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/hugomartinez"
-          >
-            <img
-              alt="hugomartinez avatar"
-              src="https://avatars2.githubusercontent.com/u/3845667?v=3"
-            />
-            <p>
-              hugomartinez
-            </p>
-          </a>
-        </td>
-        <td>
-          42
-        </td>
-        <td>
-          42
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          9
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/KibaAmor"
-          >
-            <img
-              alt="KibaAmor avatar"
-              src="https://avatars0.githubusercontent.com/u/5093911?v=3"
-            />
-            <p>
-              KibaAmor
-            </p>
-          </a>
-        </td>
-        <td>
-          42
-        </td>
-        <td>
-          42
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          10
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/zhangliting"
-          >
-            <img
-              alt="zhangliting avatar"
-              src="https://avatars1.githubusercontent.com/u/16881281?v=3"
-            />
-            <p>
-              zhangliting
-            </p>
-          </a>
-        </td>
-        <td>
-          42
-        </td>
-        <td>
-          42
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          11
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/blastit"
-          >
-            <img
-              alt="blastit avatar"
-              src="https://avatars2.githubusercontent.com/u/23505048?v=3"
-            />
-            <p>
-              blastit
-            </p>
-          </a>
-        </td>
-        <td>
-          41
-        </td>
-        <td>
-          42
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          12
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/omerharshit"
-          >
-            <img
-              alt="omerharshit avatar"
-              src="https://avatars3.githubusercontent.com/u/20610736?v=4"
-            />
-            <p>
-              omerharshit
-            </p>
-          </a>
-        </td>
-        <td>
-          41
-        </td>
-        <td>
-          42
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          13
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/valigabi"
-          >
-            <img
-              alt="valigabi avatar"
-              src="https://avatars1.githubusercontent.com/u/33953042?v=4"
-            />
-            <p>
-              valigabi
-            </p>
-          </a>
-        </td>
-        <td>
-          41
-        </td>
-        <td>
-          42
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          14
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/GorkemOkur"
-          >
-            <img
-              alt="GorkemOkur avatar"
-              src="https://avatars3.githubusercontent.com/u/16239094?v=4"
-            />
-            <p>
-              GorkemOkur
-            </p>
-          </a>
-        </td>
-        <td>
-          40
-        </td>
-        <td>
-          41
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          15
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/v01dMage"
-          >
-            <img
-              alt="v01dMage avatar"
-              src="https://avatars1.githubusercontent.com/u/8935634?v=4"
-            />
-            <p>
-              v01dMage
-            </p>
-          </a>
-        </td>
-        <td>
-          39
-        </td>
-        <td>
-          44
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          16
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/Ampersandme"
-          >
-            <img
-              alt="Ampersandme avatar"
-              src="https://avatars1.githubusercontent.com/u/32043406?v=4"
-            />
-            <p>
-              Ampersandme
-            </p>
-          </a>
-        </td>
-        <td>
-          36
-        </td>
-        <td>
-          37
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          17
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/AloisJanicek"
-          >
-            <img
-              alt="AloisJanicek avatar"
-              src="https://avatars3.githubusercontent.com/u/804158?v=4"
-            />
-            <p>
-              AloisJanicek
-            </p>
-          </a>
-        </td>
-        <td>
-          35
-        </td>
-        <td>
-          45
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          18
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/ijhar8"
-          >
-            <img
-              alt="ijhar8 avatar"
-              src="https://avatars0.githubusercontent.com/u/29692615?v=4"
-            />
-            <p>
-              ijhar8
-            </p>
-          </a>
-        </td>
-        <td>
-          34
-        </td>
-        <td>
-          35
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          19
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/cmccormack"
-          >
-            <img
-              alt="cmccormack avatar"
-              src="https://avatars1.githubusercontent.com/u/3016919?v=4"
-            />
-            <p>
-              cmccormack
-            </p>
-          </a>
-        </td>
-        <td>
-          34
-        </td>
-        <td>
-          1135
-        </td>
-      </tr>
-      <tr
-        className="row"
-      >
-        <td>
-          20
-        </td>
-        <td>
-          <a
-            className="user-info"
-            href="https://www.freecodecamp.org/AzureXX"
-          >
-            <img
-              alt="AzureXX avatar"
-              src="https://avatars2.githubusercontent.com/u/32188281?v=4"
-            />
-            <p>
-              AzureXX
-            </p>
-          </a>
-        </td>
-        <td>
-          33
-        </td>
-        <td>
-          45
         </td>
       </tr>
     </tbody>
